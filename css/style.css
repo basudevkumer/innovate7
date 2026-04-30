@@ -11,9 +11,9 @@
     display: inline-block;
  }
  img{
-    width: 100%;
     max-width: 100%;
     vertical-align: middle;
+    height: auto;
 
  }
  ul, li{
@@ -25,6 +25,7 @@
  }
  body{
     font-family: "Open Sans", sans-serif;
+    overflow-x: hidden;
 
  }
  .common_btn{
@@ -32,7 +33,7 @@
     border-radius: 100px;
     background-color: #2F93FD;
     color: #FFFFFF ;
-    font-size: 20px;
+    font-size: clamp(16px, 1.2vw + 12px, 20px);
     font-weight: 700;
   }
  /*===============================================
@@ -54,6 +55,15 @@
         .main_menu ul{
            gap: 43px;
         }
+        .main_menu .navbar-brand{
+          max-width: 170px;
+        }
+        .main_menu .navbar-toggler{
+          border: 1px solid rgba(45, 74, 104, 0.25);
+        }
+        .main_menu .navbar-toggler:focus{
+          box-shadow: 0 0 0 0.2rem rgba(47, 147, 253, 0.25);
+        }
         .main_menu ul li a{
             font-weight: 600;
             font-size: 18px;
@@ -62,6 +72,7 @@
             gap: 12px;
             align-items: center;
             transition: 0.3s;
+            white-space: nowrap;
 
 
         }
@@ -82,32 +93,33 @@
 
            #banner{
             background: url("../images/bannar.png");
-            padding: 205px 0 173px;
+            padding: clamp(96px, 16vw, 205px) 0 clamp(72px, 12vw, 173px);
             background-size: cover;
             background-position: right;
 
            }
 
            .banner_text h1{
-             font-size: 64px;
+             font-size: clamp(32px, 4vw + 10px, 64px);
              font-weight: 800;
              line-height: 120%;
              color: #001838;
            }
            .banner_text p{
-            font-size: 20px;
+            font-size: clamp(16px, 1vw + 12px, 20px);
             font-weight: 400;
             line-height: 180%;
             color: #486489;
-            padding: 24px 0 56px;
+            padding: 24px 0 clamp(28px, 5vw, 56px);
           }
           .banner_btn{
             display: flex;
             align-items: center;
             gap: 40px;
+            flex-wrap: wrap;
           }
            .service_btn{
-            font-size: 18px;
+            font-size: clamp(16px, 0.8vw + 12px, 18px);
             font-weight: 800;
             line-height: 180%;
             color: #37B865;
@@ -140,6 +152,9 @@
         }
         .about_image{
             position: relative;
+        }
+        .about_image > img{
+          display: block;
         }
         
         .about_image .cart{
@@ -183,7 +198,7 @@
   
 
   .about_details h3{
-    font: 24px;
+    font-size: 24px;
     font-weight: 500;
     color: #37b865;
     line-height:180% ;
@@ -197,18 +212,18 @@
     background-color: #37b865;
     height: 4px;
     width: 74px;
+    top: -5px;
 
 
 
   }
 
   .about_details h2{
-   font: 48px;
+   font-size: clamp(28px, 2.4vw + 16px, 48px);
    font-weight: 800;
    color: #001838;
    line-height:120% ;
-   width:570px;
-   height: 116px;
+   max-width: 570px;
    padding: 12px 0 24px;
  }
  
@@ -217,7 +232,7 @@
    padding-top: 24px;
  }
  .about_details p{
-   font: 20px;
+   font-size: clamp(16px, 1vw + 12px, 20px);
    font-weight: 400;
    color: #486489;
    line-height:180% ;
@@ -250,8 +265,9 @@
 
  }
  .counter_element{
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
  }
  #counter .counter_element .items:last-child{
       border-right: none;
@@ -264,7 +280,7 @@
 } 
 
  .counter_element .items{
-  padding: 0 60px;
+  padding: 0;
   text-align: center;
   border-right: 1px solid #37B865;
  }
@@ -315,7 +331,7 @@
   #services .service_heading{
     text-align: center;
     margin: 0 auto;
-    width: 712px;
+    max-width: 712px;
 
   }
  
@@ -343,7 +359,7 @@
   }
   #services .service_heading h2{
 
-    font-size: 48px;
+    font-size: clamp(28px, 2.4vw + 16px, 48px);
     font-weight: 800;
     line-height: 57.6px;
     color: #001838;
@@ -353,7 +369,7 @@
   }
   #services .service_heading p{
  
-    font-size: 20px;
+    font-size: clamp(16px, 1vw + 12px, 20px);
     font-weight: 300;
     line-height: 36px;
     color: #486489;
@@ -365,6 +381,7 @@
     border-top: 1px solid #FFF2F2;
     border-bottom:  1px solid #FFF2F2;
     margin-top: 71px;
+    row-gap: 24px;
   }
   .service_items.center{
     border-right: 1px solid #FFF2F2;
@@ -442,21 +459,23 @@
         top: -5px;
       }
       #chooseUs .chooseUs_details1 h2{
-        font-size: 48px;
+        font-size: clamp(28px, 2.4vw + 16px, 48px);
         font-weight: 800;
         line-height: 120%;
         color: #001838;
         padding: 12px 0 24px;
       }
       #chooseUs .chooseUs_details1 p{
-        font-size: 20px;
+        font-size: clamp(16px, 1vw + 12px, 20px);
         font-weight: 400;
         line-height: 180%;
         color: #486489;
         padding-bottom: 56px;
       }
       .chooseUs_image{
-        width: 524px;
+        max-width: 524px;
+        width: 100%;
+        margin: 0 auto;
       }
       .chooseUs_details2{
         display: flex;
@@ -521,18 +540,17 @@
   top: -5px;
 }
 #project .project_heading h2{
-  font-size: 48px;
+  font-size: clamp(28px, 2.4vw + 16px, 48px);
   font-weight: 800;
   line-height: 120%;
   color: #FFFFFF;
 }
 #project .project_heading .pro2 p{
-  font-size: 20px;
+  font-size: clamp(16px, 1vw + 12px, 20px);
   font-weight: 400;
   line-height: 180%;
   color: #ffffff;
-  height: 108px;
-  width: 512px;
+  max-width: 512px;
 
 }
 #project .project_heading {
@@ -549,22 +567,25 @@
   cursor: pointer; 
   overflow: hidden;
 }
+.project_items > img{
+  display: block;
+  width: 100%;
+}
 .project_items  .project_details{
      padding: 8px 30px;
      background-color: #FFFFFF;
-     width: calc(100% - 16px);
-   
      position: absolute;
      bottom: 8px;
-     left: 50%;
-     transform: translate(-50%,115%);
+     left: 8px;
+     right: 8px;
+     transform: translateY(115%);
      border-radius: 4px;
      text-align: center;
      transition: .6s;
 }
 
 .project_items:hover  .project_details{
-  transform: translate(-50%,0%);
+  transform: translateY(0%);
 }
 .project_main{
   position: relative;
@@ -587,7 +608,7 @@
 .project_items .project_details h4{
     font-size:22px ;
     font-weight: 700 ;
-    color:001838;
+    color:#001838;
     line-height: 180%;
 }
 .project_items .project_details p{
@@ -632,7 +653,7 @@
      position: relative;
  }
  #feedback .feedback_header h2{
-  font-size: 48px;
+  font-size: clamp(28px, 2.4vw + 16px, 48px);
   font-weight: 800;
   line-height: 120%;
   color: #001838;
@@ -658,7 +679,7 @@
  }
  .news_heading{
    text-align: center;
-   width: 751px ;
+   max-width: 751px ;
   
    margin: 0 auto;
  }
@@ -679,7 +700,7 @@
   
 }
 #news .news_heading h2{
-font-size: 48px;
+font-size: clamp(28px, 2.4vw + 16px, 48px);
 font-weight: 800;
 line-height: 120%;
 color: #001838;
@@ -692,6 +713,7 @@ padding-bottom: 56px;
   overflow: hidden;
   background-color: #ffffff;
   cursor: pointer;
+  margin-bottom: 24px;
 }
 .news_items:hover{
   box-shadow: 22px 29px 110px -4px rgba(201,201,244,0.44);
@@ -765,7 +787,13 @@ padding-bottom: 56px;
   font-weight: 400;
   color: #ffffff;
   margin-bottom:0 ;
-
+  
+}
+.news_items img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
  /*===============================================
@@ -824,8 +852,9 @@ padding-bottom: 56px;
     margin-top:80px;
     display: flex;
     justify-content: space-between;
+    gap: 16px;
    }
-   .footer_bottom p, ul li a{
+   .footer_bottom p, .footer_bottom ul li a{
     font-size: 20px;
     font-weight: 400;
     line-height: 180%;
@@ -835,6 +864,194 @@ padding-bottom: 56px;
    .footer_bottom ul{
     display: flex;
     gap: 60px;
+   }
+
+   /* ===============================================
+      Responsive adjustments (mobile-first overrides)
+   =============================================== */
+   @media (max-width: 991.98px){
+    .main_menu{
+      padding: 16px 0;
+    }
+    .main_menu ul{
+      gap: 16px;
+      padding-top: 12px;
+    }
+    .menu_btn{
+      width: 100%;
+    }
+    .menu_btn .common_btn{
+      width: 100%;
+      text-align: center;
+    }
+
+    .chooseUs_details2{
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .chooseUs_details1{
+      margin-bottom: 24px;
+    }
+
+    .service_items.center{
+      border-left: none;
+      border-right: none;
+    }
+
+    #project{
+      margin-bottom: 80px;
+    }
+    .project_main{
+      bottom: 0;
+      margin-top: 28px;
+      row-gap: 24px;
+    }
+    /* Mobile/tablet: project details always visible (no hover dependency) */
+    .project_items{
+      cursor: default;
+    }
+    .project_items .project_details{
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+      transform: translateY(0%);
+    }
+    #project .small_Union{
+      display: none;
+    }
+
+    /* Counter: prevent squished 4-col on tablets */
+    #counter{
+      padding: 72px 0 72px;
+    }
+    .counter_element{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .counter_element .items{
+      border-right: none;
+    }
+    .counter_element .items h3{
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+    }
+    .counter_element .items p{
+      font-size: clamp(14px, 1.6vw, 18px);
+    }
+
+    /* About: add a bit of breathing room on tablets */
+    .about_details{
+      padding-bottom: 24px;
+    }
+
+    /* Reduce large section paddings on mobile/tablet */
+    #project{
+      padding-top: 72px;
+    }
+    #feedback{
+      padding: 80px 0 84px;
+    }
+    #news{
+      padding: 90px 0 72px;
+    }
+   }
+
+   /* Desktop (lg+): details appear on hover only */
+   @media (min-width: 992px){
+    .project_items .project_details{
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+      transform: translateY(115%);
+    }
+    .project_items:hover .project_details{
+      transform: translateY(0%);
+    }
+   }
+
+   /* Tablet/laptop balance (keeps desktop unchanged) */
+   @media (min-width: 992px) and (max-width: 1199.98px){
+    .main_menu{
+      padding: 20px 0;
+    }
+    .main_menu ul{
+      gap: 24px;
+    }
+    .main_menu .navbar-collapse{
+      flex-wrap: nowrap;
+    }
+    .main_menu .menu_btn .common_btn{
+      padding: 12px 20px;
+    }
+   }
+
+   @media (max-width: 767.98px){
+    #about_company{
+      padding-top: 72px;
+    
+    }
+    .chooseUs_details1{
+      margin-bottom: 24px;
+    }
+    .about_details{
+      padding-bottom: 24px;
+    }
+    .about_image .cart{
+      position: static;
+      margin-top: 16px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .counter_element{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .counter_element .items{
+      border-right: none;
+    }
+    #counter .counter_img img{
+      display: none;
+    }
+    #feedback{
+      padding: 64px 0 72px;
+    }
+    #news{
+      padding: 72px 0 64px;
+    }
+    .news_details{
+      padding: 0 20px 24px;
+    }
+    .news_items .date{
+      left: 20px;
+    }
+    #footer{
+      padding: 96px 0 48px;
+    }
+    .footer_bottom{
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 48px;
+    }
+    .footer_bottom ul{
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+   }
+
+   @media (max-width: 575.98px){
+    .counter_element{
+      grid-template-columns: 1fr;
+    }
+    #counter{
+      padding: 64px 0 64px;
+    }
+    #services{
+      padding: 80px 0 80px;
+    }
+    .service_body{
+      margin-top: 40px;
+    }
    }
    
   /*===============================================
