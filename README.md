@@ -70,7 +70,7 @@ No build tools or installations required! This is a pure static site.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/innovate7.git
+   https://github.com/basudevkumer/innovate7.git
    cd innovate7
    ```
 
